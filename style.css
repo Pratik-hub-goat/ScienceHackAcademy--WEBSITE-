@@ -7101,3 +7101,142 @@ object-fit: contain;
         transition: none;
     }
 }
+
+/* =====================================================
+   SCIENCEHACKACADEMY — FIX TESTS, COMPETITIONS
+   AND ANNOUNCEMENTS CARD TEXT WRAPPING
+   Append at the VERY END of the main CSS file.
+===================================================== */
+
+/* Keep these three content areas within their sections */
+#tests #testContent,
+#competition #competitionContent,
+#announcement #announcementContent {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* Give each card enough room for its content */
+#tests #testContent .pdf-card,
+#competition #competitionContent .pdf-card,
+#announcement #announcementContent .pdf-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    height: auto;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    overflow-wrap: anywhere;
+    word-break: normal;
+    white-space: normal;
+}
+
+/* Prevent titles from breaking into narrow vertical lines */
+#tests #testContent .pdf-card h2,
+#tests #testContent .pdf-card h3,
+#competition #competitionContent .pdf-card h2,
+#competition #competitionContent .pdf-card h3,
+#announcement #announcementContent .pdf-card h2,
+#announcement #announcementContent .pdf-card h3 {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0 0 16px;
+    padding: 0;
+
+    font-size: clamp(20px, 3.5vw, 30px);
+    line-height: 1.4;
+
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+/* Keep descriptions and details readable */
+#tests #testContent .pdf-card p,
+#competition #competitionContent .pdf-card p,
+#announcement #announcementContent .pdf-card p {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 8px 0;
+    padding: 0;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+/* Keep buttons from overflowing their cards */
+#tests #testContent .pdf-card button,
+#competition #competitionContent .pdf-card button,
+#announcement #announcementContent .pdf-card button {
+    max-width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    align-self: flex-start;
+}
+
+/* Empty-state messages should span the available width */
+#tests #testContent > .empty-box,
+#competition #competitionContent > .empty-box,
+#announcement #announcementContent > .empty-box {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    grid-column: 1 / -1;
+
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    #tests #testContent,
+    #competition #competitionContent,
+    #announcement #announcementContent {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    #tests #testContent .pdf-card,
+    #competition #competitionContent .pdf-card,
+    #announcement #announcementContent .pdf-card {
+        padding: 20px;
+    }
+
+    #tests #testContent .pdf-card p,
+    #competition #competitionContent .pdf-card p,
+    #announcement #announcementContent .pdf-card p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+        }
