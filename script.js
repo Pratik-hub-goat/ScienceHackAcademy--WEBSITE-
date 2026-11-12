@@ -1564,6 +1564,38 @@ if(manageNotesBtn){
     };
 
 }
+
+
+/* =========================================
+   FIX: CLOSE NOTES UPLOAD AND MANAGE NOTES
+========================================= */
+
+// Close Add Notes modal
+
+if(closeNotesModal){
+
+    closeNotesModal.onclick = ()=>{
+
+        notesModal.style.display = "none";
+
+    };
+
+}
+
+
+// Close Manage Notes modal
+
+if(closeManageNotes){
+
+    closeManageNotes.onclick = ()=>{
+
+        manageNotesModal.style.display = "none";
+
+    };
+
+}
+
+
 if(videosBtn){
 
     videosBtn.onclick = ()=>{
