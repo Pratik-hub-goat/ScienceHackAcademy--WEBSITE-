@@ -7240,3 +7240,430 @@ object-fit: contain;
         line-height: 1.65;
     }
         }
+
+/* =========================================================
+   SCIENCE HACK ACADEMY
+   ADMIN MANAGEMENT PANELS — COMPLETE RESPONSIVE FIX
+   Homework | Notes | Videos | Tests
+========================================================= */
+
+/* 1. Give all four management modals proper dimensions */
+
+#manageHomeworkModal .modal-content,
+#manageNotesModal .modal-content,
+#manageVideoModal .modal-content,
+#manageTestModal .modal-content {
+
+    width: min(760px, calc(100% - 28px));
+    max-width: 760px;
+
+    padding: 30px 26px;
+
+    max-height: 88vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12, 31, 56, 0.98),
+            rgba(5, 18, 36, 0.99)
+        );
+
+    border: 1px solid rgba(0, 217, 255, 0.35);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 25px rgba(0, 217, 255, 0.18),
+        0 0 55px rgba(0, 255, 170, 0.08);
+
+}
+
+/* 2. Management list layout */
+
+#manageHomeworkList,
+#manageNotesList,
+#manageVideoList,
+#manageTestList {
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+
+    gap: 20px;
+
+    align-items: stretch;
+
+    box-sizing: border-box;
+
+}
+
+/* 3. IMPORTANT: Override the global horizontal pdf-card */
+
+#manageHomeworkList .pdf-card,
+#manageNotesList .pdf-card,
+#manageVideoList .pdf-card,
+#manageTestList .pdf-card {
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    min-height: 0;
+    height: auto;
+
+    margin: 0;
+
+    padding: 23px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+    justify-content: flex-start;
+
+    gap: 12px;
+
+    box-sizing: border-box;
+
+    text-align: left;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 217, 255, 0.10),
+            rgba(0, 255, 170, 0.035)
+        );
+
+    border: 1px solid rgba(0, 217, 255, 0.30);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.20);
+
+    animation: adminCardAppear .4s ease both;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+}
+
+/* 4. Card hover effect */
+
+#manageHomeworkList .pdf-card:hover,
+#manageNotesList .pdf-card:hover,
+#manageVideoList .pdf-card:hover,
+#manageTestList .pdf-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #00ffaa;
+
+    box-shadow:
+        0 12px 30px rgba(0, 217, 255, 0.16),
+        0 0 18px rgba(0, 255, 170, 0.12);
+
+}
+
+/* 5. Fix titles */
+
+#manageHomeworkList .pdf-card h3,
+#manageNotesList .pdf-card h3,
+#manageVideoList .pdf-card h3,
+#manageTestList .pdf-card h3 {
+
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0 0 8px;
+    padding: 0;
+
+    color: #00e5ff;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    line-height: 1.5;
+
+    text-align: left;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+
+}
+
+/* 6. Fix descriptions and homework/notes content */
+
+#manageHomeworkList .pdf-card p,
+#manageNotesList .pdf-card p,
+#manageVideoList .pdf-card p,
+#manageTestList .pdf-card p {
+
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+
+    color: #d7e8ff;
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    text-align: left;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: normal;
+
+}
+
+/* 7. Edit / Delete / Rename / Preview buttons */
+
+#manageHomeworkList .pdf-card button,
+#manageNotesList .pdf-card button,
+#manageVideoList .pdf-card button,
+#manageTestList .pdf-card button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+    max-width: 100%;
+
+    min-width: 105px;
+
+    margin: 7px 7px 0 0;
+
+    padding: 11px 20px;
+
+    border: none;
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #00ffaa
+        );
+
+    color: #031321;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    white-space: normal;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 15px rgba(0, 217, 255, 0.15);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+#manageHomeworkList .pdf-card button:hover,
+#manageNotesList .pdf-card button:hover,
+#manageVideoList .pdf-card button:hover,
+#manageTestList .pdf-card button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 20px rgba(0, 255, 170, 0.3);
+
+}
+
+/* 8. Manager headings */
+
+#manageHomeworkModal .modal-content h2,
+#manageNotesModal .modal-content h2,
+#manageVideoModal .modal-content h2,
+#manageTestModal .modal-content h2 {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0 0 28px;
+
+    padding-bottom: 16px;
+
+    color: #00d9ff;
+
+    font-size: clamp(23px, 4vw, 30px);
+
+    line-height: 1.4;
+
+    text-align: center;
+
+    border-bottom:
+        1px solid rgba(0, 217, 255, 0.20);
+
+}
+
+/* 9. Empty manager messages */
+
+#manageHomeworkList > p,
+#manageNotesList > p,
+#manageVideoList > p,
+#manageTestList > p {
+
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #d7e8ff;
+
+    background: rgba(0, 217, 255, 0.06);
+
+    border: 1px dashed rgba(0, 217, 255, 0.35);
+
+    border-radius: 16px;
+
+    box-sizing: border-box;
+
+}
+
+/* 10. Entry animation */
+
+@keyframes adminCardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+/* 11. Mobile responsiveness */
+
+@media (max-width: 600px) {
+
+    #manageHomeworkModal .modal-content,
+    #manageNotesModal .modal-content,
+    #manageVideoModal .modal-content,
+    #manageTestModal .modal-content {
+
+        width: calc(100% - 24px);
+
+        padding: 23px 17px;
+
+        max-height: 88vh;
+
+        border-radius: 21px;
+
+    }
+
+    #manageHomeworkList,
+    #manageNotesList,
+    #manageVideoList,
+    #manageTestList {
+
+        grid-template-columns: minmax(0, 1fr);
+
+        gap: 16px;
+
+    }
+
+    #manageHomeworkList .pdf-card,
+    #manageNotesList .pdf-card,
+    #manageVideoList .pdf-card,
+    #manageTestList .pdf-card {
+
+        padding: 19px;
+
+    }
+
+    #manageHomeworkList .pdf-card h3,
+    #manageNotesList .pdf-card h3,
+    #manageVideoList .pdf-card h3,
+    #manageTestList .pdf-card h3 {
+
+        font-size: 19px;
+
+    }
+
+    #manageHomeworkList .pdf-card p,
+    #manageNotesList .pdf-card p,
+    #manageVideoList .pdf-card p,
+    #manageTestList .pdf-card p {
+
+        font-size: 14px;
+
+        line-height: 1.75;
+
+    }
+
+    #manageHomeworkList .pdf-card button,
+    #manageNotesList .pdf-card button,
+    #manageVideoList .pdf-card button,
+    #manageTestList .pdf-card button {
+
+        min-width: 95px;
+
+        padding: 10px 16px;
+
+        font-size: 13px;
+
+    }
+
+}
+
+/* 12. Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #manageHomeworkList .pdf-card,
+    #manageNotesList .pdf-card,
+    #manageVideoList .pdf-card,
+    #manageTestList .pdf-card {
+
+        animation: none;
+        transition: none;
+
+    }
+
+}
+
